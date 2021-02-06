@@ -144,7 +144,7 @@ while menuItem != 8:
         print("Thank you, Goodbye!")
   else:
     print("Thank you, Goodbye!")
-    continue
+    break
 
 
 
