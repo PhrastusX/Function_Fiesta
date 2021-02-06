@@ -69,64 +69,81 @@ def isosceles(size):
     #had to center it in an area twice the size 
     print(unit.center(size*2+1))
 
-#inverts Isosceles flag is used when 
+#inverts Isosceles flag is used when needed for diamond function
 def invertIsosceles(size,flag=False):
+
+  #puts odd number into triangle list but starts at the last element
   triangle = ['*' * (2*i+1) for i in range(size-1,-1,-1)]
+  #will remove the bottom point when used with diamond
   if flag:
     triangle.remove("*")
+
+  #centers the lines
   for unit in triangle:
     print(unit.center(size*2+1))
 
+#creates a diamond
 def diamond(size):
+
+  #takes out one level of triangles and inserts a line that both would share
   isosceles(size-1)
   print('*'*(size*2-1))
   invertIsosceles(size-1)
 
+#creates a hourglass shape
 def hourglass(size):
+
+  #set the flag true to remove one "*" at the bottome
   invertIsosceles(size, flag=True)
   isosceles(size)
 
+#creates a house using an isosceles and drawsqr
 def house(size):
   isosceles(size-1)
   drawSqr(size*2-1)
 
-  
-
+#main part of program
+__name__
 menuItem = 0
 shapeSize = 0
 
+#user must press 8
 while menuItem != 8:
   
   menu()
+
+  #gets the users choice
   menuItem = getMenu()
   if menuItem != 8:
+    #gets the size of the shape
     shapeSize = getShape()
 
-
-  if menuItem == 1:
-    print("Drawing Square of size " + str(shapeSize))
-    drawSqr(shapeSize)
-  elif menuItem == 2:
-      print("Drawing Right Triangle of size "+ str(shapeSize))
-      drawRight(shapeSize)
-  elif menuItem == 3:
-      print("Drawing Isosceles Triangle of size "+ str(shapeSize))
-      isosceles(shapeSize)
-  elif menuItem == 4:
-      print("Drawing Inverted Isosceles Triangle of size "+ str(shapeSize))
-      invertIsosceles(shapeSize)
-  elif menuItem == 5:
-      print("Drawing Diamond of size "+ str(shapeSize))
-      diamond(shapeSize)
-  elif menuItem == 6:
-      print("Drawing Hourglass of size "+ str(shapeSize))
-      hourglass(shapeSize)
-  elif menuItem == 7:
-      print("Drawing House of size "+ str(shapeSize))
-      house(shapeSize)
-  elif menuItem == 8:
-      print("Thank you, Goodbye!")
-
+    #based onn user choice will run appropriate functiong
+    if menuItem == 1:
+      print("Drawing Square of size " + str(shapeSize))
+      drawSqr(shapeSize)
+    elif menuItem == 2:
+        print("Drawing Right Triangle of size "+ str(shapeSize))
+        drawRight(shapeSize)
+    elif menuItem == 3:
+        print("Drawing Isosceles Triangle of size "+ str(shapeSize))
+        isosceles(shapeSize)
+    elif menuItem == 4:
+        print("Drawing Inverted Isosceles Triangle of size "+ str(shapeSize))
+        invertIsosceles(shapeSize)
+    elif menuItem == 5:
+        print("Drawing Diamond of size "+ str(shapeSize))
+        diamond(shapeSize)
+    elif menuItem == 6:
+        print("Drawing Hourglass of size "+ str(shapeSize))
+        hourglass(shapeSize)
+    elif menuItem == 7:
+        print("Drawing House of size "+ str(shapeSize))
+        house(shapeSize)
+    elif menuItem == 8:
+        print("Thank you, Goodbye!")
+  else:
+    continue
 
 
 
