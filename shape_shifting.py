@@ -143,6 +143,7 @@ while menuItem != 8:
     elif menuItem == 8:
         print("Thank you, Goodbye!")
   else:
+    print("Thank you, Goodbye!")
     continue
 
 
