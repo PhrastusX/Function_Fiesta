@@ -74,8 +74,8 @@ def hourglass(size):
   isosceles(size)
 
 def house(size):
-  isosceles(size)
-  drawSqr(size)
+  isosceles(size-1)
+  drawSqr(size*2-1)
 
   
 
