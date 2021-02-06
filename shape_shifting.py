@@ -4,6 +4,8 @@
 #CS3080 001 shape_shifting
 #Program creates different shapes
 
+
+#Added a try except block so only an int can get in
 def promptForInteger(min, max, message, errorMsg):
 	
   try:
@@ -16,6 +18,7 @@ def promptForInteger(min, max, message, errorMsg):
   except ValueError:
     return promptForInteger(min, max, message, errorMsg)
 
+#basic function for menue
 def menu():
 
   print('''******************************
@@ -28,35 +31,45 @@ def menu():
 7 - Draw a House
 8 - Quit
 ******************************''')
+
+#function to get the menu item from user
 def getMenu():
   messageMenu = "Please select from the menu (1 to 8)?\n"
   errorMenu = "Your response must be number between 1 and 8, try again.\n"
   return promptForInteger(1,8,messageMenu,errorMenu)
   
-
+#gets the size of the shape from the user
 def getShape():
   messageShape = "What size should we use for your shapes (1 to 20)?\n"
   errorShape = "Your response must be number between 1 and 20, try again.\n"
   return promptForInteger(1,20,messageShape,errorShape)
 
+#draws a square
 def drawSqr(size):
 
+  #makes size blocked units and stores size of them
   square = ["*"*size for i in range(size)]
   for unit in square:
     print(unit)
 
-
+#makes a right triangle
 def drawRight(size):
+
+  #each item in list increases by 1 each iteration
   rightTriangle = ['*'*(i+1) for i in range(size)]
   for unit in rightTriangle:
     print(unit)
 
+#makes an isosceles triangle
 def isosceles(size):
   
+  #puts an odd number of * sequentially in the list
   triangle = ['*' * (2*i+1) for i in range(size)]
   for unit in triangle:
+    #had to center it in an area twice the size 
     print(unit.center(size*2+1))
 
+#inverts Isosceles flag is used when 
 def invertIsosceles(size,flag=False):
   triangle = ['*' * (2*i+1) for i in range(size-1,-1,-1)]
   if flag:
