@@ -18,7 +18,7 @@ def promptForInteger(min, max, message, errorMsg):
   except ValueError:
     return promptForInteger(min, max, message, errorMsg)
 
-#basic function for menue
+#basic function for menu
 def menu():
 
   print('''******************************
